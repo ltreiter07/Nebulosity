@@ -14,4 +14,5 @@
 - Click on a favorite city to instantly fetch its weather
 - Favorites are saved automatically in a local file
 
+## More Info?
 Read the weather-app-docs.html for a more indepth view of the app
