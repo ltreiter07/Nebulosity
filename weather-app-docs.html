@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WeatherApp Documentation</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; background: #f9f9f9; }
+    h1, h2, h3 { color: #333; }
+    pre { background: #eee; padding: 1em; overflow-x: auto; }
+    code { color: #d6336c; }
+    .section { margin-bottom: 2em; }
+  </style>
+</head>
+<body>
+
+  <h1>WeatherApp Documentation</h1>
+  <p><strong>WeatherApp</strong> is a terminal-based weather application built with <a href="https://docs.python.org/3/library/tkinter.html">Tkinter</a>. It fetches real-time weather data using the Tomorrow.io API and allows users to manage a list of favorite cities.</p>
+
+  <div class="section">
+    <h2>Setup</h2>
+    <ol>
+      <li>Install dependencies:
+        <pre><code>pip install dotenv</code></pre>
+      </li>
+      <li>Install dependencies:
+        <pre><code>pip install requests</code></pre>
+      </li>
+      <li>Create a <code>.env</code> file in the project root:
+        <pre><code>API_KEY=your_tomorrow_io_api_key</code></pre>
+      </li>
+      <li>Run the application:
+        <pre><code>python weather_app_tkinter.py</code></pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Features</h2>
+    <ul>
+      <li>Fetches real-time weather data using Tomorrow.io's API.</li>
+      <li>Maps raw weather codes to human-readable descriptions via <code>weathercode.json</code>.</li>
+      <li>Add cities to a favorites list for quick access.</li>
+      <li>Display weather info for selected favorites.</li>
+      <li>Automatically persists favorite cities to disk.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Key Methods</h2>
+    <ul>
+      <li><code>get_weather(city, api_key)</code> – Sends a request to Tomorrow.io and returns parsed weather data.</li>
+      <li><code>WeatherApp.__init__(self, root)</code> – Sets up the Tkinter UI and loads favorites from disk.</li>
+      <li><code>WeatherApp.fetch_weather(self)</code> – Gets weather for the city in the input box and updates the UI.</li>
+      <li><code>WeatherApp.add_to_favorites(self)</code> – Adds the entered city to favorites if not already present.</li>
+      <li><code>WeatherApp.display_favorite_weather(self, event)</code> – Shows weather for the selected city in the listbox.</li>
+      <li><code>WeatherApp.get_weather(self, city)</code> – Wrapper around global <code>get_weather()</code> using the API key.</li>
+      <li><code>WeatherApp.update_favorites_list(self)</code> – Refreshes the displayed favorites list in the UI.</li>
+      <li><code>WeatherApp.save_favorites(self)</code> – Saves the favorites list to <code>favorites.json</code>.</li>
+      <li><code>WeatherApp.load_favorites(self)</code> – Loads the favorites list from <code>favorites.json</code> (if it exists).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>File Structure</h2>
+    <ul>
+      <li><code>weather_app_tkinter.py</code> – Main application file containing logic and UI.</li>
+      <li><code>.env</code> – Contains the Tomorrow.io API key.</li>
+      <li><code>weathercode.json</code> – Maps Tomorrow.io weather codes to descriptions.</li>
+      <li><code>favorites.json</code> – Auto-generated; stores user's favorite cities.</li>
+    </ul>
+  </div>
+
+</body>
+</html>
